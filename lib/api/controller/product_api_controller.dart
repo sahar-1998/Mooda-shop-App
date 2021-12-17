@@ -22,7 +22,7 @@ class ProductApiController with  ApiHelper{
 
   Future <ProudctDetails?> getproductdetails({required int id}) async {
     var response = await http.get(Uri.parse(ApiSetting.productDetails + '$id'),headers:headers);
-    print("ffffffffffffff ${response.body} $id");
+    print("ffffffffffffff ${response.body}$id");
     if (response.statusCode==200) {
       var data = jsonDecode(response.body)['object'];
       var productDetails = ProudctDetails.fromJson(data);

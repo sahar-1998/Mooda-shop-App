@@ -36,16 +36,17 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
           title: Text(
             'Sub Category',
-            style: TextStyle(color: Colors.black, fontFamily: 'Poppins'),
+            style: TextStyle(color: Colors.white, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
           ),
           elevation: 0,
-          backgroundColor: Colors.white,
+          backgroundColor: Color(0xFFf48fb1),
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
-              color: Colors.black,
+              color: Colors.white,
             ),
             onPressed: () {
               Navigator.pop(context);

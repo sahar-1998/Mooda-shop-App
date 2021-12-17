@@ -213,13 +213,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor:  const Color(0xFFf48fb1),
+        backgroundColor: const Color(0xFFf48fb1),
         title: const Text(
           'Proudct details',
+          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -228,7 +229,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
       body: GetX<ProudctGetController>(
         builder: (ProudctGetController controller) {
           return controller.loading.value
-              ? Center(
+              ? const Center(
                   child: CircularProgressIndicator(),
                 )
               : Stack(
@@ -240,8 +241,9 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                         enableInfiniteScroll: true,
                         reverse: false,
                         autoPlay: true,
-                        autoPlayInterval: Duration(seconds: 3),
-                        autoPlayAnimationDuration: Duration(milliseconds: 800),
+                        autoPlayInterval: const Duration(seconds: 3),
+                        autoPlayAnimationDuration:
+                            const Duration(milliseconds: 800),
                         autoPlayCurve: Curves.fastOutSlowIn,
                         // enlargeCenterPage: true,
                         scrollDirection: Axis.horizontal,
@@ -254,11 +256,11 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               imageUrl: image.imageUrl,
                               fit: BoxFit.cover,
                               height: 400,
-                              width: double.infinity,
-                              placeholder: (context, url) =>
-                                  Center(child: CircularProgressIndicator()),
+                              width: 300,
+                              placeholder: (context, url) => const Center(
+                                  child: CircularProgressIndicator()),
                               errorWidget: (context, url, error) =>
-                                  Icon(Icons.error),
+                                  const Icon(Icons.error),
                             );
                           },
                         );
@@ -268,22 +270,25 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                       alignment: Alignment.bottomCenter,
                       child: Container(
                         width: double.infinity,
-                        height: 410,
-                        decoration: BoxDecoration(
+                        height: 350,
+                        decoration: const BoxDecoration(
                           borderRadius: BorderRadius.only(
                             topLeft: Radius.circular(50),
                             topRight: Radius.circular(50),
                           ),
-                          color: Colors.white,
+                          color: Color(0xFFf48fb1),
                         ),
                         child: Padding(
-                          padding: EdgeInsets.symmetric(
+                          padding: const EdgeInsets.symmetric(
                             vertical: 15,
                             horizontal: 15,
                           ),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
+                              SizedBox(
+                                height: 20,
+                              ),
                               Row(
                                 children: [
                                   Text(
@@ -292,13 +297,14 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                             .proudctdetails.value!.nameEn
                                         : controller
                                             .proudctdetails.value!.nameAr,
-                                    style: TextStyle(
-                                      color: Colors.orange,
+                                    style: const TextStyle(
+                                      color: Colors.black,
                                       fontSize: 20,
-                                      fontWeight: FontWeight.w700,
+                                      fontFamily: 'Poppins',
+                                      fontWeight: FontWeight.bold,
                                     ),
                                   ),
-                                  Spacer(),
+                                  const Spacer(),
                                   GestureDetector(
                                     onTap: () {
                                       controller.addFavoriteProducts(
@@ -315,7 +321,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                                   .value!.isFavorite
                                               ? Colors.red
                                               : Colors.grey),
-                                      child: Icon(
+                                      child: const Icon(
                                         Icons.favorite,
                                         color: Colors.white,
                                       ),
@@ -323,38 +329,45 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                   )
                                 ],
                               ),
-                              SizedBox(
-                                height: 8,
+                              const SizedBox(
+                                height: 10,
                               ),
                               Text(
                                 'Price:\$${controller.proudctdetails.value!.price}',
-                                style: TextStyle(
-                                  color: Colors.black54,
+                                style: const TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
                                   fontSize: 20,
+                                  fontFamily: 'Poppins'
                                 ),
                               ),
-                              SizedBox(
-                                height: 8,
+                              const SizedBox(
+                                height: 10,
                               ),
-                              Text(
+                              const Text(
                                 'Description:',
                                 style: TextStyle(
-                                  fontSize: 17,
-                                  color: Colors.pinkAccent,
+                                  fontSize: 20,
+                                  color: Colors.black,
                                   fontWeight: FontWeight.w700,
+                                  fontFamily: ''
                                 ),
                               ),
-                              // SizedBox(
-                              //   height: SizeConfig.scaleHeight(8),
-                              // ),
-                              // Expanded(
-                              //     child: AppText(
-                              //   text: StudentPreferences().languageCode == 'en'
-                              //       ? controller.proudctdetails.value!.infoEn
-                              //       : controller.proudctdetails.value!.infoAr,
-                              //   color: AppColors.app_text1,
-                              //   fontsize: SizeConfig.scaleTextFont(14),
-                              // )),
+                              const SizedBox(
+                                height: 10,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  SharedPrefController().languageCode == 'en'
+                                      ? controller.proudctdetails.value!.infoEn
+                                      : controller.proudctdetails.value!.infoAr,
+                                  style: const TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w500,
+                                    fontSize: 20,
+                                  ),
+                                ),
+                              ),
                               // SizedBox(
                               //   height: SizeConfig.scaleHeight(8),
                               // ),
@@ -397,72 +410,5 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
     );
   }
 
-  showCartDialog() {
-    showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) =>
-          StatefulBuilder(builder: (context, setState) {
-        return Dialog(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(25),
-          ),
-          child: Container(
-            // clipBehavior: Clip.antiAlias,
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Container(
-                  clipBehavior: Clip.antiAlias,
-                  decoration: BoxDecoration(
-                    color: Colors.blue,
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25),
-                        topRight: Radius.circular(25)),
-                  ),
-                  padding: EdgeInsets.all(15),
-                  width: double.infinity,
-                  child: Text(
-                    'Add To Card',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsets.all(15),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      Container(
-                        child: CachedNetworkImage(
-                          imageUrl: controller.proudctdetails.value!.imageUrl,
-                          placeholder: (context, url) => Center(
-                            child: CircularProgressIndicator(
-                              color: Colors.black,
-                            ),
-                          ),
-                          errorWidget: (context, url, error) =>
-                              Icon(Icons.error),
-                          height: 100,
-                          width: 100,
-                          fit: BoxFit.cover,
-                        ),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(15),
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ),
-        );
-      }),
-    );
-  }
+
 }

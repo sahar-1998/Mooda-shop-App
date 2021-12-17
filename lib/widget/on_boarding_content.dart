@@ -13,7 +13,7 @@ class OnBoardingContent extends StatelessWidget {
     return Column(
       children: [
         SizedBox(
-          height: 90.h,
+          height: 30.h,
         ),
         Text(title!,
             textAlign: TextAlign.center,
@@ -29,7 +29,7 @@ class OnBoardingContent extends StatelessWidget {
                 fontWeight: FontWeight.w400,
                 color: Colors.grey)),
         SizedBox(
-          height: 80.h,
+          height: 50.h,
         ),
         Image.asset(imagepath!, height: 350,width: double.infinity,fit: BoxFit.fill,)
       ],

@@ -48,7 +48,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 child: Text(
                   'Start',
                   style: TextStyle(
-                      fontSize: 40.sp,
+                      fontSize: 18.sp,
                       color: Colors.black,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600),
@@ -70,7 +70,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 minWidth: 0.w,
                 maxWidth: double.infinity,
                 minHeight: 50.h,
-                maxHeight: 670.h),
+                maxHeight: 580.h),
             child: PageView(
               controller: _pageController,
               scrollDirection: Axis.horizontal,
@@ -130,7 +130,7 @@ class _OnBoardingState extends State<OnBoarding> {
             ],
           ),
           SizedBox(
-            height: 20.h,
+            height: 5.h,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,

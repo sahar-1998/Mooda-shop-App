@@ -2,7 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
 import 'package:Modda_shop/models/bn_screen.dart';
-import 'package:Modda_shop/screens/bn_screens/favorite_screen.dart';
 import 'package:Modda_shop/screens/bn_screens/categories_screen.dart';
 import 'package:Modda_shop/screens/bn_screens/home_screen.dart';
 import 'package:Modda_shop/screens/bn_screens/profile_screen.dart';
@@ -72,12 +71,12 @@ class _MainScreenState extends State<MainScreen> {
             activeIcon: Icon(Icons.category),
             label: 'Categories',
           ),
-          BottomNavigationBarItem(
-            backgroundColor: Colors.white,
-            icon: Icon(Icons.favorite),
-            activeIcon: Icon(Icons.favorite),
-            label: 'Favorite',
-          ),
+          // BottomNavigationBarItem(
+          //   backgroundColor: Colors.white,
+          //   icon: Icon(Icons.favorite),
+          //   activeIcon: Icon(Icons.favorite),
+          //   label: 'Favorite',
+          // ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
             icon: Icon(Icons.person),

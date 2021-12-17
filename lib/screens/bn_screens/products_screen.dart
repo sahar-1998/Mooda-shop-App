@@ -161,7 +161,7 @@ class _ProudctScreenState extends State<ProudctScreen> {
         backgroundColor: Color(0xFFf48fb1),
         centerTitle: true,
         title: const Text(
-          'Products',
+          'Products', style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
         ),
         leading: IconButton(
           icon: const Icon(Icons.arrow_back_ios),
@@ -193,95 +193,71 @@ class _ProudctScreenState extends State<ProudctScreen> {
                         ));
                       },
                       child: Container(
-                          clipBehavior: Clip.antiAlias,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(5),
-                            color: Colors.white,
-                            border: Border.all(
-                              color: Color(0xFFf48fb1),
-                            ),
-                          ),
-                          height: 300,
-                          width: 146,
-                          child: Column(
-                            children: [
-                              Container(
+                        clipBehavior: Clip.antiAlias,
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(5),
+                          color: Color(0xFFf48fb1),
+                        ),
+                        height: 200,
+                        width: 146,
+                        child: Column(
+                          children: [
+                            Container(
+                                width: double.infinity,
+                                height: 260,
+                                child: CachedNetworkImage(
+                                  imageUrl: controller.proudct[index].imageUrl,
+                                  fit: BoxFit.cover,
                                   width: double.infinity,
-                                  height: 190,
-                                  child: CachedNetworkImage(
-                                    imageUrl:
-                                        controller.proudct[index].imageUrl,
-                                    fit: BoxFit.cover,
-                                    width: double.infinity,
-                                    placeholder: (context, url) => const Center(
-                                        child: CircularProgressIndicator()),
-                                    errorWidget: (context, url, error) =>
-                                        Icon(Icons.error),
-                                  )),
-                              const SizedBox(
-                                height: 10,
+                                  placeholder: (context, url) => const Center(
+                                      child: CircularProgressIndicator()),
+                                  errorWidget: (context, url, error) =>
+                                      Icon(Icons.error),
+                                )),
+                            const SizedBox(
+                              height: 10,
+                            ),
+                            Text(
+                              SharedPrefController().languageCode == 'en'
+                                  ? controller.proudct[index].nameEn
+                                  : controller.proudct[index].nameAr,
+                              style: const TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19,
+                                  fontWeight: FontWeight.bold,
+                                  fontFamily: 'Poppins'),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              "\$${controller.proudct[index].price}",
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 20,
+                                fontWeight: FontWeight.w700,
+                                fontFamily: 'Poppins'
                               ),
-                              Text(
-                                SharedPrefController().languageCode == 'en'
-                                    ? controller.proudct[index].nameEn
-                                    : controller.proudct[index].nameAr,
-                                style: const TextStyle(
-                                    color: Color(0xFFf48fb1), fontSize: 13),
+                            ),
+                            const SizedBox(
+                              height: 5,
+                            ),
+                            Text(
+                              '${controller.proudct[index].quantity} product_available'
+                                  .tr,
+                              style: const TextStyle(
+                                color: Colors.white,
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
                               ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                "\$${controller.proudct[index].price}",
-                                style: const TextStyle(
-                                  color: Color(0xFFf48fb1),
-                                  fontSize: 17,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                              ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Text(
-                                '${controller.proudct[index].quantity} product_available'
-                                    .tr,
-                                style: const TextStyle(
-                                  color: Color(0xFFf48fb1),
-                                  fontSize: 13,
-                                  fontWeight: FontWeight.w700,
-                                ),
-                                textAlign: TextAlign.start,
-                              ),
-                              const SizedBox(
-                                height: 8,
-                              ),
-                              Center(
-                                child: Row(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    const Icon(
-                                      Icons.star,
-                                      color: Colors.amber,
-                                      size: 15,
-                                    ),
-                                    const SizedBox(
-                                      width: 5,
-                                    ),
-                                    Text(
-                                      '(${controller.proudct[index].overalRate})',
-                                      style: const TextStyle(
-                                          fontSize: 10, color: Colors.grey),
-                                    ),
-                                  ],
-                                ),
-                              ),
-                              SizedBox(
-                                height: 8,
-                              ),
-                            ],
-                          )),
+                              textAlign: TextAlign.start,
+                            ),
+                          ],
+                        ),
+                      ),
                     );
-                  });
+                  },
+                );
         },
       ),
     );
