@@ -1,4 +1,5 @@
 import 'package:Modda_shop/api/controller/favourite_api_controller.dart';
+import 'package:Modda_shop/models/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:Modda_shop/screens/bn_screens/product_details_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -10,28 +11,25 @@ import 'package:Modda_shop/models/sub_category.dart';
 import 'package:Modda_shop/screens/bn_screens/products_screen.dart';
 import 'package:Modda_shop/widget/category_widget.dart';
 
-class SubCategoriesScreen extends StatefulWidget {
-  const SubCategoriesScreen({
+class FavouriteScreen extends StatefulWidget {
+  const FavouriteScreen({
     Key? key,
-    required this.id,
   }) : super(key: key);
 
-  final int id;
-
   @override
-  _SubCategoriesScreenState createState() => _SubCategoriesScreenState();
+  _FavouriteScreenState createState() => _FavouriteScreenState();
 }
 
-class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
-  late Future<List<SubCategory>> _future;
+class _FavouriteScreenState extends State<FavouriteScreen> {
+  late Future<List<ProudctDetails>> _future;
 
-  List<> _subCategories = <SubCategory>[];
+  List<ProudctDetails> _favourite = <ProudctDetails>[];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _future = FavoriteProductApiController ().getFavoriteProducts(widget.id.toString());
+    _future = FavoriteProductApiController().getFavoriteProducts();
   }
 
   @override
@@ -54,20 +52,20 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
               color: Colors.white,
             ),
             onPressed: () {
-              Navigator.pop(context);
+              Navigator.popAndPushNamed(context, '/main_screen');
             },
           )),
-      body: FutureBuilder<List<SubCategory>>(
+      body: FutureBuilder<List<ProudctDetails>>(
         future: _future,
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return const Center(child: CircularProgressIndicator());
           } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
-            _subCategories = snapshot.data ?? [];
+            _favourite = snapshot.data ?? [];
             return GridView.builder(
               physics: BouncingScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
-              itemCount: _subCategories.length,
+              itemCount: _favourite.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
                 crossAxisCount: 2,
                 mainAxisSpacing: 10,
@@ -79,8 +77,8 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) =>
-                                ProudctScreen(id: _subCategories[index].id)));
+                            builder: (context) => ProductDetailsScreen(
+                                proudct: _favourite[index])));
                   },
                   child: SizedBox(
                     height: 350,
@@ -93,7 +91,7 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
                       //   mainAxisAlignment: MainAxisAlignment.center,
                       //   children: [
                       child: Image.network(
-                        _subCategories[index].imageUrl,
+                        _favourite[index].imageUrl,
                         width: double.infinity,
                         fit: BoxFit.cover,
                         height: 150,

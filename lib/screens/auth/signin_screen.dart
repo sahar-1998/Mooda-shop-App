@@ -50,109 +50,112 @@ class _SignInState extends State<SignIn> with ApiHelper {
         children: [
           Image.asset(
             'images/launch.png',
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
             height: double.infinity,
+            width: double.infinity,
           ),
-          Container(
-            child: Column(
-              children: [
-                SizedBox(height: 85.h),
-                Text(
-                  'MODDA',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 40.sp,
-                      fontFamily: 'Poppins'),
-                ),
-                SizedBox(
-                  height: 30.h,
-                ),
-                Container(
-                  margin: EdgeInsets.symmetric(horizontal: 15),
-                  padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
-                  decoration: BoxDecoration(
-                    color: Colors.white.withOpacity(0.3),
-                    borderRadius: BorderRadius.circular(20),
+          SingleChildScrollView(
+            child: Container(
+              child: Column(
+                children: [
+                  SizedBox(height: 85.h),
+                  Text(
+                    'MODDA',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 40.sp,
+                        fontFamily: 'Poppins'),
                   ),
-                  child: Column(
-                    children: [
-                      Text(
-                        'Sign In ',
-                        style: TextStyle(
-                          fontSize: 22.sp,
-                          fontWeight: FontWeight.bold,
-                          fontFamily: 'Poppins',
+                  SizedBox(
+                    height: 30.h,
+                  ),
+                  Container(
+                    margin: EdgeInsets.symmetric(horizontal: 15),
+                    padding: EdgeInsets.symmetric(horizontal: 20, vertical: 25),
+                    decoration: BoxDecoration(
+                      color: Colors.white.withOpacity(0.3),
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Column(
+                      children: [
+                        Text(
+                          'Sign In ',
+                          style: TextStyle(
+                            fontSize: 22.sp,
+                            fontWeight: FontWeight.bold,
+                            fontFamily: 'Poppins',
+                            color: Colors.white,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 20.h,
+                        ),
+                        AppTextField(
+                          hint: 'Phone number',
+                          controller: _phoneTextEditingController,
+                          prefixIcon: Icons.phone,
+                          keyboardType: TextInputType.phone,
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        AppTextField(
+                          hint: 'password',
+                          controller: _passwordTextEditingController,
+                          prefixIcon: Icons.remove_red_eye_rounded,
+                          obscureText: true,
+                        ),
+                        SizedBox(
+                          height: 16.h,
+                        ),
+                        GestureDetector(
+                          onTap: () {
+                            Navigator.pushNamed(context, '/forget_password');
+                          },
+                          child: const Align(
+                            alignment: Alignment.topRight,
+                            child: Text('Forget Password ? ',
+                                style: TextStyle(
+                                    fontFamily: 'Poppins',
+                                    fontWeight: FontWeight.w700)),
+                          ),
+                        ),
+                        SizedBox(
+                          height: 30.h,
+                        ),
+                        WidgetButton(
+                          onPress: () async => await performLogin(),
+                          text: 'Sign In',
                           color: Colors.white,
                         ),
-                      ),
-                      SizedBox(
-                        height: 20.h,
-                      ),
-                      AppTextField(
-                        hint: 'Phone number',
-                        controller: _phoneTextEditingController,
-                        prefixIcon: Icons.phone,
-                        keyboardType: TextInputType.phone,
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      ),
-                      AppTextField(
-                        hint: 'password',
-                        controller: _passwordTextEditingController,
-                        prefixIcon: Icons.remove_red_eye_rounded,
-                        obscureText: true,
-                      ),
-                      SizedBox(
-                        height: 16.h,
-                      ),
-                      GestureDetector(
-                        onTap: () {
-                          Navigator.pushNamed(context, '/forget_password');
-                        },
-                        child: const Align(
-                          alignment: Alignment.topRight,
-                          child: Text('Forget Password ? ',
-                              style: TextStyle(
-                                  fontFamily: 'Poppins',
-                                  fontWeight: FontWeight.w700)),
+                        SizedBox(
+                          height: 10.h,
                         ),
-                      ),
-                      SizedBox(
-                        height: 30.h,
-                      ),
-                      WidgetButton(
-                        onPress: () async => await performLogin(),
-                        text: 'Sign In',
-                        color: Colors.white,
-                      ),
-                      SizedBox(
-                        height: 10.h,
-                      ),
-                      RichText(
-                        textAlign: TextAlign.center,
-                        text: TextSpan(
-                          text: 'Don\'t have an account?',
-                          style: const TextStyle(
-                            color: Colors.black,
-                          ),
-                          children: [
-                            const TextSpan(text: ' '),
-                            TextSpan(
-                              recognizer: _tapGestureRecognizer,
-                              text: 'Create Now!',
-                              style: const TextStyle(
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.bold),
+                        RichText(
+                          textAlign: TextAlign.center,
+                          text: TextSpan(
+                            text: 'Don\'t have an account?',
+                            style: const TextStyle(
+                              color: Colors.black,
                             ),
-                          ],
+                            children: [
+                              const TextSpan(text: ' '),
+                              TextSpan(
+                                recognizer: _tapGestureRecognizer,
+                                text: 'Create Now!',
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold),
+                              ),
+                            ],
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           )
         ],

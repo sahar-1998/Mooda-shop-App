@@ -1,3 +1,4 @@
+import 'package:Modda_shop/screens/bn_screens/favorite_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:hexcolor/hexcolor.dart';
@@ -19,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<BnScreen> _bnScreens = <BnScreen>[
     const BnScreen(title: 'Home', widget: Home()),
     const BnScreen(title: 'Categories', widget: CategoriesScreen()),
-    //const BnScreen(title: 'Favorite', widget: FavoriteScreen()),
+    const BnScreen(title: 'Favorite', widget: FavouriteScreen()),
     const BnScreen(title: 'Profile', widget: ProfileScreen()),
   ];
 
@@ -71,12 +72,12 @@ class _MainScreenState extends State<MainScreen> {
             activeIcon: Icon(Icons.category),
             label: 'Categories',
           ),
-          // BottomNavigationBarItem(
-          //   backgroundColor: Colors.white,
-          //   icon: Icon(Icons.favorite),
-          //   activeIcon: Icon(Icons.favorite),
-          //   label: 'Favorite',
-          // ),
+          BottomNavigationBarItem(
+            backgroundColor: Colors.white,
+            icon: Icon(Icons.favorite),
+            activeIcon: Icon(Icons.favorite),
+            label: 'Favorite',
+          ),
           BottomNavigationBarItem(
             backgroundColor: Colors.white,
             icon: Icon(Icons.person),
