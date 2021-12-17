@@ -48,7 +48,7 @@ class _OnBoardingState extends State<OnBoarding> {
                 child: Text(
                   'Start',
                   style: TextStyle(
-                      fontSize: 18.sp,
+                      fontSize: 40.sp,
                       color: Colors.black,
                       fontFamily: 'Poppins',
                       fontWeight: FontWeight.w600),

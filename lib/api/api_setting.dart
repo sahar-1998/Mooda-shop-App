@@ -13,8 +13,8 @@ class ApiSetting {
 
   static const categories = _apiUrl + 'categories';
   static const subCategory = _apiUrl +'categories/{id}';
-  static const products = _apiUrl +'sub-categories/{id}';
-  static const productDetails = _apiUrl +'products/{id}';
+  static const products = _apiUrl +'sub-categories/';
+  static const productDetails = _apiUrl +'products/';
 
 
   static const cities = _apiUrl+ 'cities';

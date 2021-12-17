@@ -20,7 +20,7 @@ class _MainScreenState extends State<MainScreen> {
   final List<BnScreen> _bnScreens = <BnScreen>[
     const BnScreen(title: 'Home', widget: Home()),
     const BnScreen(title: 'Categories', widget: CategoriesScreen()),
-    const BnScreen(title: 'Favorite', widget: FavoriteScreen()),
+    //const BnScreen(title: 'Favorite', widget: FavoriteScreen()),
     const BnScreen(title: 'Profile', widget: ProfileScreen()),
   ];
 
