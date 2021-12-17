@@ -1,3 +1,4 @@
+import 'package:Modda_shop/api/controller/favourite_api_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:Modda_shop/screens/bn_screens/product_details_screen.dart';
 import 'package:flutter/cupertino.dart';
@@ -24,13 +25,13 @@ class SubCategoriesScreen extends StatefulWidget {
 class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
   late Future<List<SubCategory>> _future;
 
-  List<SubCategory> _subCategories = <SubCategory>[];
+  List<> _subCategories = <SubCategory>[];
 
   @override
   void initState() {
     // TODO: implement initState
     super.initState();
-    _future = HomeApiController().getSubCategories(widget.id.toString());
+    _future = FavoriteProductApiController ().getFavoriteProducts(widget.id.toString());
   }
 
   @override

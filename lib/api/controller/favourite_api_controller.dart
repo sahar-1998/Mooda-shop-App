@@ -7,6 +7,7 @@ import 'package:Modda_shop/api/api_setting.dart';
 import 'package:Modda_shop/models/product_details.dart';
 
 class  FavoriteProductApiController  with  ApiHelper{
+
   Future<List<ProudctDetails>> getFavoriteProducts() async {
     var url = Uri.parse(ApiSetting.favoriteProducts);
     var response = await http.get(url,headers: headers);
