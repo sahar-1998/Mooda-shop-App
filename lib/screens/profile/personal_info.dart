@@ -28,15 +28,15 @@ class _PersonalInfoState extends State<PersonalInfo> {
 
       body:Container(
         width: double.infinity,
-        color: Color(0xFFf48fb1),
+        color: Colors.grey.shade200,
         child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Image.asset('images/info.png'),
+          Image.asset('images/info.png', color: Colors.black87,),
           SizedBox(height: 30,),
-          Text('MOODA SHOP APP',style: TextStyle( color:Colors.white,fontSize: 25),),
+          Text('MOODA SHOP APP',style: TextStyle( color:Colors.black,fontSize: 25, fontWeight: FontWeight.bold),),
           SizedBox(height: 15,),
-          Text('Sahar Essam Al Talaa',style: TextStyle( color:Colors.white,fontSize: 17),),
+          Text('Sahar Essam Al Talaa',style: TextStyle( color:Colors.black87,fontSize: 17),),
         ],
     ),
       ),

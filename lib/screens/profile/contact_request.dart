@@ -57,7 +57,7 @@ class _ContactRequestState extends State<ContactRequest> with ApiHelper {
             height: 500.h,
             width: 500.w,
             decoration: BoxDecoration(
-                color: Color(0xFFf48fb1), borderRadius: BorderRadius.circular(20)),
+                color: Colors.black.withOpacity(0.1), borderRadius: BorderRadius.circular(20)),
             child: Padding(
               padding: const EdgeInsets.all(25),
               child: Column(

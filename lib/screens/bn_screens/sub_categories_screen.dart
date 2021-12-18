@@ -36,13 +36,16 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        centerTitle: true,
-          title: Text(
+          centerTitle: true,
+          title: const Text(
             'Sub Category',
-            style: TextStyle(color: Colors.white, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+            style: TextStyle(
+                color: Colors.white,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.bold),
           ),
           elevation: 0,
-          backgroundColor: Color(0xFFf48fb1),
+          backgroundColor: Colors.black,
           leading: IconButton(
             icon: Icon(
               Icons.arrow_back_ios,
@@ -84,26 +87,12 @@ class _SubCategoriesScreenState extends State<SubCategoriesScreen> {
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      // child: Column(
-                      //   mainAxisAlignment: MainAxisAlignment.center,
-                      //   children: [
                       child: Image.network(
                         _subCategories[index].imageUrl,
                         width: double.infinity,
                         fit: BoxFit.cover,
-                        height: 150,
+                        height: 200,
                       ),
-                      // const SizedBox(height: 15),
-                      // Text(
-                      //   _subCategories[index].nameEn,
-                      //   style: const TextStyle(
-                      //       fontFamily: 'Poppins',
-                      //       color: Colors.black,
-                      //       fontWeight: FontWeight.bold,
-                      //       fontSize: 18),
-                      // )
-                      //   ],
-                      // ),
                     ),
                   ),
                 );

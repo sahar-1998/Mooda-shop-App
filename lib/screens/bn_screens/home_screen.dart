@@ -53,7 +53,6 @@ class _HomeState extends State<Home> {
                       'Home',
                       style: TextStyle(
                           fontSize: 22.sp,
-                          color: Color(0xFFf48fb1),
                           fontWeight: FontWeight.bold,
                           fontFamily: 'Poppins'),
                     ),

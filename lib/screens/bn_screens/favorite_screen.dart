@@ -2,14 +2,7 @@ import 'package:Modda_shop/api/controller/favourite_api_controller.dart';
 import 'package:Modda_shop/models/product_details.dart';
 import 'package:flutter/material.dart';
 import 'package:Modda_shop/screens/bn_screens/product_details_screen.dart';
-import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
-import 'package:Modda_shop/api/controller/home_api_controller.dart';
-import 'package:Modda_shop/models/category.dart';
-import 'package:Modda_shop/models/product.dart';
-import 'package:Modda_shop/models/sub_category.dart';
-import 'package:Modda_shop/screens/bn_screens/products_screen.dart';
-import 'package:Modda_shop/widget/category_widget.dart';
+
 
 class FavouriteScreen extends StatefulWidget {
   const FavouriteScreen({
@@ -37,24 +30,24 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
     return Scaffold(
       appBar: AppBar(
           centerTitle: true,
-          title: Text(
+          title: const Text(
             'favourite ',
             style: TextStyle(
-                color: Colors.white,
+                color: Colors.black,
                 fontFamily: 'Poppins',
                 fontWeight: FontWeight.bold),
           ),
           elevation: 0,
-          backgroundColor: Color(0xFFf48fb1),
+          backgroundColor: Colors.grey.shade200,
           leading: IconButton(
-            icon: Icon(
+            icon: const Icon(
               Icons.arrow_back_ios,
-              color: Colors.white,
+              color: Colors.black,
             ),
             onPressed: () {
               Navigator.popAndPushNamed(context, '/main_screen');
             },
-          )),
+          ),),
       body: FutureBuilder<List<ProudctDetails>>(
         future: _future,
         builder: (context, snapshot) {
@@ -63,7 +56,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
           } else if (snapshot.hasData && snapshot.data!.isNotEmpty) {
             _favourite = snapshot.data ?? [];
             return GridView.builder(
-              physics: BouncingScrollPhysics(),
+              physics: const BouncingScrollPhysics(),
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 50),
               itemCount: _favourite.length,
               gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
@@ -96,17 +89,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
                         fit: BoxFit.cover,
                         height: 150,
                       ),
-                      // const SizedBox(height: 15),
-                      // Text(
-                      //   _subCategories[index].nameEn,
-                      //   style: const TextStyle(
-                      //       fontFamily: 'Poppins',
-                      //       color: Colors.black,
-                      //       fontWeight: FontWeight.bold,
-                      //       fontSize: 18),
-                      // )
-                      //   ],
-                      // ),
+
                     ),
                   ),
                 );

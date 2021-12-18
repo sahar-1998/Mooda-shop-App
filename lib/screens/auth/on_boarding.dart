@@ -34,6 +34,7 @@ class _OnBoardingState extends State<OnBoarding> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
@@ -61,7 +62,7 @@ class _OnBoardingState extends State<OnBoarding> {
                     style: TextStyle(
                         fontSize: 18.sp,
                         fontFamily: 'Poppins',
-                        color: Color(0xFFf48fb1))),
+                        color: Colors.black)),
               ),
             ),
           ),

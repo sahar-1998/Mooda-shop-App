@@ -131,6 +131,7 @@ import 'package:Modda_shop/get/product_controller.dart';
 import 'package:Modda_shop/prefs/shared_pref_controller.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:get/get.dart';
 
 import 'product_details_screen.dart';
@@ -158,13 +159,17 @@ class _ProudctScreenState extends State<ProudctScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color(0xFFf48fb1),
+        backgroundColor: Colors.grey.shade200,
         centerTitle: true,
         title: const Text(
-          'Products', style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+          'Products',
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+              color: Colors.black),
         ),
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black,),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -196,15 +201,15 @@ class _ProudctScreenState extends State<ProudctScreen> {
                         clipBehavior: Clip.antiAlias,
                         decoration: BoxDecoration(
                           borderRadius: BorderRadius.circular(5),
-                          color: Color(0xFFf48fb1),
+                          color: Colors.black12,
                         ),
-                        height: 200,
+                        height: 220,
                         width: 146,
                         child: Column(
                           children: [
                             Container(
                                 width: double.infinity,
-                                height: 260,
+                                height: 240.h,
                                 child: CachedNetworkImage(
                                   imageUrl: controller.proudct[index].imageUrl,
                                   fit: BoxFit.cover,
@@ -222,8 +227,8 @@ class _ProudctScreenState extends State<ProudctScreen> {
                                   ? controller.proudct[index].nameEn
                                   : controller.proudct[index].nameAr,
                               style: const TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 19,
+                                  color: Colors.black54,
+                                  fontSize: 18,
                                   fontWeight: FontWeight.bold,
                                   fontFamily: 'Poppins'),
                             ),
@@ -233,11 +238,10 @@ class _ProudctScreenState extends State<ProudctScreen> {
                             Text(
                               "\$${controller.proudct[index].price}",
                               style: const TextStyle(
-                                color: Colors.white,
-                                fontSize: 20,
-                                fontWeight: FontWeight.w700,
-                                fontFamily: 'Poppins'
-                              ),
+                                  color: Colors.white,
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: 'Poppins'),
                             ),
                             const SizedBox(
                               height: 5,
@@ -246,7 +250,7 @@ class _ProudctScreenState extends State<ProudctScreen> {
                               '${controller.proudct[index].quantity} product_available'
                                   .tr,
                               style: const TextStyle(
-                                color: Colors.white,
+                                color: Colors.grey,
                                 fontSize: 14,
                                 fontWeight: FontWeight.w700,
                               ),

@@ -213,14 +213,17 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color(0xFFf48fb1),
+        backgroundColor: Colors.grey.shade200,
         title: const Text(
           'Proudct details',
-          style: TextStyle(fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+          style: TextStyle(
+              fontFamily: 'Poppins',
+              fontWeight: FontWeight.bold,
+              color: Colors.black),
         ),
         centerTitle: true,
         leading: IconButton(
-          icon: const Icon(Icons.arrow_back_ios),
+          icon: const Icon(Icons.arrow_back_ios, color: Colors.black,),
           onPressed: () {
             Navigator.pop(context);
           },
@@ -276,7 +279,7 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                             topLeft: Radius.circular(50),
                             topRight: Radius.circular(50),
                           ),
-                          color: Color(0xFFf48fb1),
+                          color: Colors.white,
                         ),
                         child: Padding(
                           padding: const EdgeInsets.symmetric(
@@ -335,11 +338,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               Text(
                                 'Price:\$${controller.proudctdetails.value!.price}',
                                 style: const TextStyle(
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                  fontSize: 20,
-                                  fontFamily: 'Poppins'
-                                ),
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.bold,
+                                    fontSize: 20,
+                                    fontFamily: 'Poppins'),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -347,11 +349,10 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                               const Text(
                                 'Description:',
                                 style: TextStyle(
-                                  fontSize: 20,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w700,
-                                  fontFamily: ''
-                                ),
+                                    fontSize: 20,
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w700,
+                                    fontFamily: ''),
                               ),
                               const SizedBox(
                                 height: 10,
@@ -362,42 +363,13 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
                                       ? controller.proudctdetails.value!.infoEn
                                       : controller.proudctdetails.value!.infoAr,
                                   style: const TextStyle(
-                                    color: Colors.white,
+                                    color: Colors.black54,
                                     fontWeight: FontWeight.w500,
                                     fontSize: 20,
                                   ),
                                 ),
                               ),
-                              // SizedBox(
-                              //   height: SizeConfig.scaleHeight(8),
-                              // ),
-                              // RatingBar.builder(
-                              //   initialRating: double.parse(ProudctGetController
-                              //       .to.proudctdetails.value!.productRate
-                              //       .toString()),
-                              //   minRating: 1,
-                              //   direction: Axis.horizontal,
-                              //   allowHalfRating: true,
-                              //   itemCount: 5,
-                              //   itemSize: 35,
-                              //   itemBuilder: (context, _) => Icon(
-                              //     Icons.star,
-                              //     color: Colors.amber,
-                              //   ),
-                              //   onRatingUpdate: (rating) {
-                              //     ProudctGetController.to.rattingProduct(
-                              //         product: ProudctGetController
-                              //             .to.proudctdetails.value!,
-                              //         context: context,
-                              //         rate: rating);
-                              //   },
-                              // ),
-                              // Spacer(),
-                              // AppElevatedButton(
-                              //     text: 'Add to cart',
-                              //     onPressed: () {
-                              //       showCartDialog();
-                              //     })
+
                             ],
                           ),
                         ),
@@ -409,6 +381,4 @@ class _ProductDetailsScreenState extends State<ProductDetailsScreen>
       ),
     );
   }
-
-
 }

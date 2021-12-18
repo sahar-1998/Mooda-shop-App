@@ -1,7 +1,5 @@
 import 'package:Modda_shop/screens/bn_screens/favorite_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:hexcolor/hexcolor.dart';
 import 'package:Modda_shop/models/bn_screen.dart';
 import 'package:Modda_shop/screens/bn_screens/categories_screen.dart';
 import 'package:Modda_shop/screens/bn_screens/home_screen.dart';
@@ -45,9 +43,9 @@ class _MainScreenState extends State<MainScreen> {
         backgroundColor: Colors.white,
         elevation: 10,
 
-        selectedItemColor: Color(0xFFf48fb1),
-        selectedIconTheme: IconThemeData(
-          color: Color(0xFFf48fb1),
+        selectedItemColor: Colors.black,
+        selectedIconTheme: const IconThemeData(
+          color: Colors.black,
         ),
         selectedFontSize: 14.sp,
         selectedLabelStyle: TextStyle(letterSpacing: 2.sp),
@@ -56,9 +54,9 @@ class _MainScreenState extends State<MainScreen> {
         unselectedIconTheme: IconThemeData(color: Colors.grey.shade700),
         unselectedFontSize: 12,
         unselectedLabelStyle:
-            TextStyle(fontWeight: FontWeight.w300, letterSpacing: 1),
+            const TextStyle(fontWeight: FontWeight.w300, letterSpacing: 1),
 
-        iconSize: 16,
+        iconSize: 18,
         items: const [
           BottomNavigationBarItem(
             backgroundColor: Colors.white,

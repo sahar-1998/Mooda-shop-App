@@ -61,6 +61,7 @@ class _CreateAccountState extends State<CreateAccount> with ApiHelper {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: Stack(
         children: [
           Image.asset(

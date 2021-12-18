@@ -38,7 +38,7 @@ class _SettingsState extends State<Settings> {
           Container(
             height: 110.h,
             child: Card(
-              color: Color(0xFFf48fb1),
+              color: Colors.grey.shade200,
               margin: EdgeInsets.all(20),
               elevation: 3,
               child: Row(
@@ -61,7 +61,7 @@ class _SettingsState extends State<Settings> {
           Container(
             height: 110.h,
             child: Card(
-              color: Color(0xFFf48fb1),
+              color: Colors.grey.shade200,
               margin: EdgeInsets.all(20),
               elevation: 3,
               child: Row(
@@ -84,7 +84,7 @@ class _SettingsState extends State<Settings> {
           Container(
             height: 110.h,
             child: Card(
-              color: Color(0xFFf48fb1),
+              color: Colors.grey.shade200,
               margin: EdgeInsets.all(20),
               elevation: 3,
               child: Row(
@@ -107,7 +107,7 @@ class _SettingsState extends State<Settings> {
           Container(
             height: 110.h,
             child: Card(
-              color: Color(0xFFf48fb1),
+              color: Colors.grey.shade200,
               margin: EdgeInsets.all(20),
               elevation: 3,
               child: Row(
@@ -130,7 +130,7 @@ class _SettingsState extends State<Settings> {
           Container(
             height: 110.h,
             child: Card(
-              color: Color(0xFFf48fb1),
+              color: Colors.grey.shade200,
               margin: EdgeInsets.all(20),
               elevation: 3,
               child: Row(
@@ -153,7 +153,7 @@ class _SettingsState extends State<Settings> {
           Container(
             height: 110.h,
             child: Card(
-              color: Color(0xFFf48fb1),
+              color: Colors.grey.shade200,
               margin: EdgeInsets.all(20),
               elevation: 3,
               child: Row(
